@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link to the Leaflet CSS file for the map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+<!-- Header section containing the page title -->
+<header>
+    <h1>Contact Nick</h1>
+</header>
+<!-- Section for the contact form -->
+<section>
+    <h2>Contact Form</h2>
+    <!-- Form with action and method attributes, which specify where to send the form data and how -->
+    <form action="#" method="post">
+        <!-- Label and input for the name field -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <!-- Label and input for the email field -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        <!-- Label and textarea for the message field -->
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+        <!-- Submit button to send the form data -->
+        <button type="submit">Submit</button>
+    </form>
+</section>
+<!-- Section for the map -->
+<section>
+    <h2>Location</h2>
+    <!-- Div where the map will be displayed -->
+    <div id="map" style="height: 400px; width: 100%;"></div>
+    <!-- Script to initialize the map using Leaflet.js -->
+    <script>
+        function initMap() {
+            // Create a map object and set the view to Sydney, Australia
+            var map = L.map('map').setView([-31.9505, 115.8605], 10);
+            // Add a tile layer from OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            // Add a marker to the map
+            L.marker([-31.9505, 115.8605]).addTo(map)
+                .bindPopup('Nick Sgarlata\'s Location')
+                .openPopup();
+        }
+        // Initialize the map when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', initMap);
+    </script>
+    <!-- Include the Leaflet.js library -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</section>
+<!-- Footer section -->
+<footer>
+    <p>© 2024 Nick Sgarlata. All rights reserved.</p>
+</footer>
+</body>
+</html>
